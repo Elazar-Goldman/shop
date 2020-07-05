@@ -8,6 +8,7 @@ class Category extends Model
 {
   public static function getCategories(){
    
- return $categories = self::all();
+ return $categories = self::orderBy('cat_slug')->get();
+
   }
 }

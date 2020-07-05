@@ -9,6 +9,6 @@ class ShopController extends Controller
   public function displayShop(){
       
       $data['categories']= Category::getCategories();
-      //return view('shop.shop',$data);
+      return view('shop.shop',$data);
   }
 }
