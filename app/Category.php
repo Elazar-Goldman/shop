@@ -6,9 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+   public function products(){
+        return $this->hasMany('App\Product');
+    }
+  public static function getCategory($slug){
+   
+ return self::where('slug', $slug)->firstOrFail();
+
+  }
+
+
+    
   public static function getCategories(){
    
- return $categories = self::orderBy('cat_slug')->get();
+ return self::orderBy('slug')->get();
 
   }
 }
+
+
+

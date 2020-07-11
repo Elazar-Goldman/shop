@@ -64,7 +64,7 @@
         </main>
         <footer class="bg-light">
             <div class ="container text-center p-5">
-            @ Devloped by Elazar Goldman {{date ('Y')}}    
+            &copy; Devloped by Elazar Goldman {{date ('Y')}}    
             </div>
         </footer>
         <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>

@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'pages.home');
 Route::view('about', 'pages.about'); 
 Route::get('shop', 'ShopController@displayShop');
+Route::get('shop/{slug}', 'ShopController@displayCategory');

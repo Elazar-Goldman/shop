@@ -10,7 +10,7 @@
     <div class="col-md-4 mb-5">
         <div calss="cat-container">
             <h3>{{strtoupper($category->cat_name)}}</h3>
-           <a class ="stretched-link" href="{{url('shop/'.$category->cat_slug)}}"><image src="{{asset('images/categories/' . $category->cat_img)}}"></a>
+           <a class ="stretched-link" href="{{url('shop/'.$category->slug)}}"><image src="{{asset('images/categories/' . $category->cat_img)}}"></a>
         </div>
         
 
