@@ -9,6 +9,13 @@ use App\Product;
 class ShopController extends Controller
 {
 
+       public function displayProduct($cat, $pro){
+      
+      $data['product']= Product::getProduct($cat, $pro);
+      return view('shop.product', $data);
+     
+  }
+    
         public function displayCategory($slug){
       
       $data['category']= Category::getCategory($slug);
@@ -24,3 +31,5 @@ class ShopController extends Controller
 
   
 }
+
+

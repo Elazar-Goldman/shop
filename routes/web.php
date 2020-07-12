@@ -18,3 +18,4 @@ Route::view('/', 'pages.home');
 Route::view('about', 'pages.about'); 
 Route::get('shop', 'ShopController@displayShop');
 Route::get('shop/{slug}', 'ShopController@displayCategory');
+Route::get('shop/{slug}/{products}', 'ShopController@displayProduct');
