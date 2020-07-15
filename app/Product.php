@@ -10,6 +10,18 @@ class Product extends Model {
         return $this->belongsTo('App\Category');
     }
     
+    public static function addToCart($id, $qty=1){
+        
+     $product =  self::findOrFail($id);
+         
+       \Cart::add(
+        ['id' => $product->id,
+      'name' => $product->pro_name,
+      'qty' => $qty,
+      'price' => $product->pro_price,
+      'weight' => 0]);
+    }
+
     public static function getProduct($cat, $pro) {
         $product = self::where('slug', $pro)->firstOrFail();
         $product_cat = $product->category->slug;

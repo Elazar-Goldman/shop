@@ -25,3 +25,7 @@ input{
     display: inline-block;
     vertical-align: middle;
 }
+
+.delete{
+    width: 18px;
+}

@@ -19,3 +19,10 @@ Route::view('about', 'pages.about');
 Route::get('shop', 'ShopController@displayShop');
 Route::get('shop/{slug}', 'ShopController@displayCategory');
 Route::get('shop/{slug}/{products}', 'ShopController@displayProduct');
+Route::get('add-to-cart/{productId}', 'CartController@addToCart');
+Route::post('add-to-cart', 'CartController@addToCartByQuantity');
+Route::get('cart', 'CartController@displayCart');
+Route::post('update-cart', 'CartController@updateCart');
+Route::get('delete-item/{rowId}', 'CartController@deleteItem');
+Route::get('delete-cart', 'CartController@deleteCart');
+
