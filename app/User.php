@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Model
 {
@@ -11,6 +12,13 @@ class User extends Model
      if(! $user || ! Hash::check($request->password, $user->password)){
          return false;
      }
+     session([
+          'name'=> $user->name,
+          'role'=> $user->role_id,
+          'id'=> $user->id,
+         
+     ]);
+     return true;
     }
     
     public static function store($request){

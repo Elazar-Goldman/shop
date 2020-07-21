@@ -4,9 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Order;
 class CartController extends Controller
 
 {
+    public function placeOrder(){
+        if(session('id')){
+            if(\Cart::count()){
+                Order::store();
+                return redirect('shop')->with('status','Thank you for shopping your order is on its way');
+                
+            }
+                return redirect('cart');
+            
+        }
+        session(['place-order-process', true]);
+        return redirect('login')->with('status-fail', 'to complate you order please login. Not regestered yet? <a href="'.url('signup').'">click here </a>');
+    }
+
+    
+
     public function deleteCart(){
         \Cart::destroy();
         return redirect('shop')->with('status', 'Your cart was deleted');;;

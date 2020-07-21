@@ -32,3 +32,6 @@ Route::post('signup', 'UserController@processSignup');
 Route::get('login', 'UserController@displayLogin');
 Route::post('login', 'UserController@processLogin');
 
+Route::get('logout', 'UserController@logout');
+
+Route::get('place-order', 'CartController@placeOrder');

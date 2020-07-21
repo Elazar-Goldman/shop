@@ -45,12 +45,18 @@
       </li>
     </ul>
       <ul class="navbar-nav ml-auto">
+          @if(session('id'))
+          <li class="nav-item ">
+        <a class="nav-link" href="{{url('logout')}}">{{ucfirst(session('name'))}}, Logout</a>
+      </li>
+          @else
           <li class="nav-item ">
         <a class="nav-link" href="{{url('login')}}">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url('signup')}}">Sign up</a>
       </li>
+      @endif
       </ul>
       <div id="mini-cart">
           <a class="text-secondary" href="{{url('cart')}}">
@@ -75,7 +81,7 @@
 @endif
                   @if (session('status-fail'))
     <div class="alert alert-danger">
-        {{ session('status-fail') }}
+        {!! session('status-fail') !!}
     </div>
 @endif
        @if ($errors->any())

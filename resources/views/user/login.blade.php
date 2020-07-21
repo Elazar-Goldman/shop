@@ -1,10 +1,10 @@
 @extends('template')
 
 @section('content')
-<h1>Log in  </h1>
+<h1>Log in</h1>
 <div class="row">
     <div class="col-md-8">
-        <form class="clearfix" method="post" action="{{url('signup')}}">
+        <form class="clearfix" method="post" action="{{url('login')}}">
             @csrf        
   <div class="form-group">
     <label for="email">Email address</label>
