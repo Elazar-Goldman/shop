@@ -46,6 +46,11 @@
     </ul>
       <ul class="navbar-nav ml-auto">
           @if(session('id'))
+          @if(session('role')=== 17)
+           <li class="nav-item ">
+        <a class="nav-link font-weight-bold" href="{{url('admin')}}">Deshboard</a>
+      </li> 
+          @endif
           <li class="nav-item ">
         <a class="nav-link" href="{{url('logout')}}">{{ucfirst(session('name'))}}, Logout</a>
       </li>

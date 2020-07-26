@@ -18,7 +18,8 @@ class CartController extends Controller
                 return redirect('cart');
             
         }
-        session(['place-order-process', true]);
+        session(['place-order-process'=>true ]);
+        
         return redirect('login')->with('status-fail', 'to complate you order please login. Not regestered yet? <a href="'.url('signup').'">click here </a>');
     }
 

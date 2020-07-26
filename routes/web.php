@@ -35,3 +35,10 @@ Route::post('login', 'UserController@processLogin');
 Route::get('logout', 'UserController@logout');
 
 Route::get('place-order', 'CartController@placeOrder');
+
+Route::get('admin', 'AdminController@displayDashborad')->middleware('validate_admin');
+Route::get('admin/orders', 'AdminController@displayOrders')->middleware('validate_admin');
+
+Route::resource('admin/categories', 'CategoryCrudController')->middleware('validate_admin');
+
+
