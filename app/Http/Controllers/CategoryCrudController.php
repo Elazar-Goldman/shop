@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Http\Requests\CategoryHandler;
 class CategoryCrudController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class CategoryCrudController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.category.add');
     }
 
     /**
@@ -33,9 +34,10 @@ class CategoryCrudController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryHandler $request)
     {
-        //
+        Category::store($request);
+        return redirect('admin/categories')->with('status','The category was uploaded sucssefuly');
     }
 
     /**
