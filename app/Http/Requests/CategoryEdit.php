@@ -4,8 +4,13 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryHandler extends FormRequest
+class CategoryEdit extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
 
     /**
      * Get the validation rules that apply to the request.
@@ -14,10 +19,12 @@ class CategoryHandler extends FormRequest
      */
     public function rules()
     {
+        
+        $id = request()->category;
         return [
           'name'=> 'Required|min:2|regex:/^[\d\w -]+$/',
-            'slug'=>'Required|min:2|alpha_dash|unique:categories,slug',
-            'image'=> 'Required|image'
+            'slug'=>'Required|min:2|alpha_dash|unique:categories,slug,'.$id,
+            'image'=> 'image'
             
         ];
     }

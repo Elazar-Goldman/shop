@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryEdit;
 use Illuminate\Http\Request;
+use App\Product;
 use App\Category;
-use App\Http\Requests\CategoryHandler;
-class CategoryCrudController extends Controller
+use App\Http\Requests\ProductHandler;
+class ProductCrudController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class CategoryCrudController extends Controller
      */
     public function index()
     {
-        $data['categories'] = Category::getCategories();
-       return view('admin.category.list', $data);
+       $data['products'] = Product::getAll();
+       
+       return view('admin.product.list', $data);
     }
 
     /**
@@ -26,7 +27,9 @@ class CategoryCrudController extends Controller
      */
     public function create()
     {
-      return view('admin.category.add');
+       $data['categories'] = Category::getCategories();
+       
+       return view('admin.product.add', $data);
     }
 
     /**
@@ -35,23 +38,13 @@ class CategoryCrudController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryHandler $request)
+    public function store(ProductHandler $request)
     {
-        Category::store($request);
-        
-        return redirect('admin/categories')->with('status','The category was uploaded sucssefuly');
+      Product::store($request);
+      
+      return redirect('admin/products')->with('status', 'The product was added sucssefuly');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -61,9 +54,10 @@ class CategoryCrudController extends Controller
      */
     public function edit($id)
     {
-        $data['category'] = Category::getCategoryById($id);
-        
-        return view('admin.category.edit', $data);
+         $data['categories'] = Category::getCategories();
+           $data['product'] = Product::getProductById($id);
+           
+           return view('admin.product.edit', $data);
     }
 
     /**
@@ -73,11 +67,9 @@ class CategoryCrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryEdit $request, $id)
+    public function update(Request $request, $id)
     {
-        Category::updateCategory($id, $request);
-        
-         return redirect('admin/categories')->with('status','The category was updated sucssefuly');
+        //
     }
 
     /**
@@ -88,7 +80,6 @@ class CategoryCrudController extends Controller
      */
     public function destroy($id)
     {
-        Category::deleteCategory($id);
-        return redirect('admin/categories')->with('status','The category was deleted sucssefuly');
+        //
     }
 }

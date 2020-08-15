@@ -100,6 +100,19 @@ $(function () {
         $('a.delete-cart').on('click', function(){
         return confirm('Are you sure you wand to delete your cart?');
     })
+    $('.open-modal').on('click', function(){
+      
+        var that = $(this);
+        var id = that.data('id');
+
+        var form = $('#data-form');
+        var route = form.data('route');
+        form.attr('action', route + '/'+ id);
+         var name = that.data('name');
+                
+        $("#confirmModal .modal-body").text('Are you sure you would like to delte ' + name);
+        
+    });
 });
 
 function debounce(func, wait, immediate) {
