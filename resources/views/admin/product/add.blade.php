@@ -21,7 +21,7 @@
     <select class="form-control form-control-sm" id="category" name="category">
         <option value="0">Chose Category</option>
         @foreach ($categories as $category)
-        <option value="{{$category->id}}"> {{$category->cat_name}} </option>
+        <option value="{{$category->id}}" {{ $category->id == old('category') ? 'selected' : ''}}> {{$category->cat_name}} </option>
        @endforeach
 </select>
     
