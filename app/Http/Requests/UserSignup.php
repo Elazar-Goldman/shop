@@ -13,6 +13,7 @@ class UserSignup extends FormRequest
         'name'=>'Required|min:2|max:30',
         'email'=>'Required|Email|unique:users,email',
         'password'=>'Required|min:4|Confirmed',
+        'role'=> 'sometimes|integer|exists:roles,id'
              
         ];
     }

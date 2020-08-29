@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Model
 {
+    public function role(){
+        return $this->belongsTo('App\Role');
+        
+    }
+
+
+    public static function getUsers(){
+        return self::orderBy('id')->get();
+    }
      public static function loginUser($request){
      $user = self::where('email', $request->email)->first();
      if(! $user || ! Hash::check($request->password, $user->password)){
@@ -26,7 +35,7 @@ class User extends Model
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->role_id = 35;
+        $user->role_id = $request->role ?? 35;
         
         $user->save();
         

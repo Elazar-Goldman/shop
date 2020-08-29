@@ -3,11 +3,45 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Storage;
 class Product extends Model {
 
     public function category(){
         return $this->belongsTo('App\Category');
+    }
+    
+    public static function deleteProduct($id){
+        $product = self::findOrFail($id);
+        Storage::disk('public')->delete($product->image);
+        
+        self::destroy($id);
+        
+    }
+
+        
+    public static function editProduct($request){
+        
+           $product = self::findOrFail($request->product);
+        
+        $product->pro_name = $request->name;
+        
+        $product->slug = $request->slug;
+        
+        $product->pro_price =  $request->price;
+        
+        $product->pro_description =  $request->description;
+        
+          $product->category_id =  $request->category;
+        
+        if($request->image){
+            Storage::disk('public')->delete($product->image);
+            
+            $product->pro_img = $request->image->store('images/products', 'public');
+        }
+        
+        
+        $product->save();  
+        
     }
     
     public static function getProductById($id){

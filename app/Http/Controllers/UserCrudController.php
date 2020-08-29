@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-use App\Product;
-use App\Category;
-use App\Http\Requests\ProductHandler;
-class ProductCrudController extends Controller
+use App\User;
+use App\Role;
+use App\Http\Requests\UserSignup;
+
+class UserCrudController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,8 @@ class ProductCrudController extends Controller
      */
     public function index()
     {
-       $data['products'] = Product::getAll();
-       
-       return view('admin.product.list', $data);
+        $data['users'] = User::getUsers();
+        return view('admin.user.list' , $data);
     }
 
     /**
@@ -27,9 +28,8 @@ class ProductCrudController extends Controller
      */
     public function create()
     {
-       $data['categories'] = Category::getCategories();
-       
-       return view('admin.product.add', $data);
+        $data['roles'] = Role::getAll();
+        return view('admin.user.add' , $data);
     }
 
     /**
@@ -38,13 +38,22 @@ class ProductCrudController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductHandler $request)
+    public function store(UserSignup $request)
     {
-      Product::store($request);
-      
-      return redirect('admin/products')->with('status', 'The product was added sucssefuly');
+        User::store($request);
+        return redirect('admin/users')->with('status', 'the user was added successfuly');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -54,10 +63,7 @@ class ProductCrudController extends Controller
      */
     public function edit($id)
     {
-         $data['categories'] = Category::getCategories();
-           $data['product'] = Product::getProductById($id);
-           
-           return view('admin.product.edit', $data);
+        //
     }
 
     /**
@@ -67,10 +73,9 @@ class ProductCrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductHandler $request, $id)
+    public function update(Request $request, $id)
     {
-        Product::editProduct($request);
-        return redirect('admin/products')->with('status', 'The product was updated successfuly');
+        //
     }
 
     /**
@@ -81,9 +86,6 @@ class ProductCrudController extends Controller
      */
     public function destroy($id)
     {
-       Product::deleteProduct($id);
-       
-          return redirect('admin/products')->with('status', 'The product was deleted successfuly');
-       
+        //
     }
 }

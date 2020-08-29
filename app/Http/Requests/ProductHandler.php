@@ -14,13 +14,16 @@ class ProductHandler extends FormRequest
      */
     public function rules()
     {
+   $unique = ($this-> product) ? ','.$this->product: '';
+   $requred = ($this->product)? '': 'required|';
+        
         return [
-             'name'=> 'Required|min:2|regex:/^[\d\w -]+$/',
-            'slug'=>'Required|min:2|alpha_dash|unique:categories,slug',
-            'image'=> 'Required|image',
-            'category'=>'Required|integer|exists:categories,id',
-            'price'=>'Required|numeric',
-            'description'=>'Required|min:6',
+             'name'=> 'required|min:2|regex:/^[\d\w -]+$/',
+            'slug'=>'required|min:2|alpha_dash|unique:categories,slug'.$unique,
+            'image'=> $requred .'image',
+            'category'=>'required|integer|exists:categories,id',
+            'price'=>'required|numeric',
+            'description'=>'required|min:6',
         ];
     }
 }
