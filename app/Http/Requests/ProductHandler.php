@@ -21,7 +21,7 @@ class ProductHandler extends FormRequest
              'name'=> 'required|min:2|regex:/^[\d\w -]+$/',
             'slug'=>'required|min:2|alpha_dash|unique:categories,slug'.$unique,
             'image'=> $requred .'image',
-            'category'=>'required|integer|exists:categories,id',
+            'category'=>'required|integer|exists:products,id',
             'price'=>'required|numeric',
             'description'=>'required|min:6',
         ];

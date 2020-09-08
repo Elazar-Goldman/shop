@@ -26,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function($view){
             $view->with('cart_count', \Cart::count());
         });
+        
+            View::composer('*', function($view){
+            $view->with('pages', \App\Page::getAll());
+        });
     }
 }
