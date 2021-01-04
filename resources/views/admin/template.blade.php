@@ -17,7 +17,7 @@
         
     </div>
     <div class='col-md-9'>
-        @yield('admin-content');
+        @yield('admin-content')
         
     </div>
     

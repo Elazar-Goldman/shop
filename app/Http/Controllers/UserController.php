@@ -21,7 +21,7 @@ class UserController extends Controller
                   $request->session()->forget('place-order-process');
             return redirect('place-order');
         }
-            return redirect('shop')->with('status', 'Welcome'. ucfirst(session('name')));
+            return redirect('shop')->with('status', 'Welcome '. ucfirst(session('name')));
         }
         return redirect('login')->with('status-fail', 'Wrong email or password.');
     }

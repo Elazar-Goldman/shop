@@ -1,5 +1,5 @@
 @extends('template')
 
 @section('content')
-<h1>Home page</h1> 
+<h1>This is the new Home page</h1> 
 @endsection

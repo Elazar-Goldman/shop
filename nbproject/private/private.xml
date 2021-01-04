@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/page/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/shop/app/Http/Controllers/pageCrudController.php</file>
-            <file>file:/C:/xampp/htdocs/shop/app/Page.php</file>
+            <file>file:/C:/xampp/htdocs/shop/resources/views/pageTemplate.blade.php</file>
+            <file>file:/C:/xampp/htdocs/shop/resources/views/template.blade.php</file>
+            <file>file:/C:/xampp/htdocs/shop/resources/views/pages/home.blade.php</file>
+            <file>file:/C:/xampp/htdocs/shop/resources/views/welcome.blade.php</file>
+            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/template.blade.php</file>
+            <file>file:/C:/xampp/htdocs/shop/public/index.php</file>
+            <file>file:/C:/xampp/htdocs/shop/resources/views/admin/category/add.blade.php</file>
         </group>
     </open-files>
 </project-private>

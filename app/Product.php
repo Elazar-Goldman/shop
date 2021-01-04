@@ -67,6 +67,14 @@ class Product extends Model {
         $product->save();
         
     }
+    
+    public static function getProductsLowCost($slug, $id){
+        return self::where('category_id', $id)->orderBy('pro_price','asc')->get();
+    }
+    
+      public static function getProductsHighCost($slug, $id){
+        return self::where('category_id', $id)->orderBy('pro_price','desc')->get();
+    }
 
     public static function getAll(){
         return self::orderBy('slug')->get();

@@ -16,7 +16,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
-  <a class="navbar-brand" href="{{url('/')}}">LOGO NEEDED</a>
+  <a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('images/logo/logo.png')}}" alt="Company logo" class="logo-img"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -106,7 +106,7 @@
         </main>
         <footer class="bg-light">
             <div class ="container text-center p-5">
-            &copy; Devloped by Elazar Goldman {{date ('Y')}}    
+            &copy; Developed by Elazar Goldman {{date ('Y')}}    
             </div>
         </footer>
         <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>

@@ -19,6 +19,10 @@ Route::view('about', 'pages.about');
 Route::get('shop', 'ShopController@displayShop');
 Route::get('shop/{slug}', 'ShopController@displayCategory');
 Route::get('shop/{slug}/{products}', 'ShopController@displayProduct');
+
+Route::post('shop/{slug}/sort-low-cart', 'ShopController@displayCategoryLow');
+Route::post('shop/{slug}/sort-high-cart', 'ShopController@displayCategoryHigh');
+
 Route::get('add-to-cart/{productId}', 'CartController@addToCart');
 Route::post('add-to-cart', 'CartController@addToCartByQuantity');
 Route::get('cart', 'CartController@displayCart');

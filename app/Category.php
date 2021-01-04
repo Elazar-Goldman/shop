@@ -54,6 +54,22 @@ class Category extends Model
         $category->save();
         
     }
+    
+        public static function getProductsLow($slug){
+        $data['category'] = self::where('slug', $slug)->firstOrFail(['id', 'slug']);
+        $id = $data['category']['id'];
+        $data['products'] = Product::getProductsLowCost($slug, $id);
+        return $data;
+    }
+    
+       public static function getProductsHigh($slug){
+        $data['category'] = self::where('slug', $slug)->firstOrFail(['id', 'slug']);
+        $id = $data['category']['id'];
+        $data['products'] = Product::getProductsHighCost($slug, $id);
+        return $data;
+    }
+    
+    
 
     public static function getCategory($slug){
    
